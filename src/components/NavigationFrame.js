@@ -286,7 +286,7 @@ function Footer() {
         component="a"
         target="_blank"
         rel="noopener"
-        href="https://github.com/CreatifyPlatform/CreatifyWallet"
+        href="https://github.com/CreatifyPlatform/creatify-wallet"
         startIcon={<CodeIcon />}
       >
         View Source
