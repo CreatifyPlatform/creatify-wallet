@@ -85,7 +85,7 @@ function SeedWordsForm({ mnemonicAndSeed, goForward }) {
           Create a new wallet to hold Solana and SPL tokens.
         </Typography>
         <Typography>
-          Please write down the following twelve words and keep them in a safe
+          Please write down the following twenty four words and keep them in a safe
           place:
         </Typography>
         {mnemonicAndSeed ? (

@@ -1,6 +1,6 @@
-# SPL Token Wallet
+# CreatifyWallet
 
-Example Solana wallet with support for [SPL tokens](https://spl.solana.com/token) and Serum integration.
+Wallet to access Creatify Platform with support for [SPL tokens](https://spl.solana.com/token) and Serum integration.
 
 See [sollet.io](https://www.sollet.io) for a demo.
 

@@ -1,14 +1,23 @@
 import { getUnlockedMnemonicAndSeed } from './../wallet-seed';
-import * as bip32 from 'bip32';
+// import * as bip32 from 'bip32';
 import nacl from 'tweetnacl';
 import { Account } from '@solana/web3.js';
 import bs58 from 'bs58';
+import { derivePath, getPublicKey } from 'ed25519-hd-key';
 
-export function getAccountFromSeed(seed, walletIndex, accountIndex = 0) {
-  const derivedSeed = bip32
-    .fromSeed(seed)
-    .derivePath(`m/501'/${walletIndex}'/0/${accountIndex}`).privateKey;
-  return new Account(nacl.sign.keyPair.fromSeed(derivedSeed).secretKey);
+export function getAccountFromSeed(seed, walletIndex) {
+  // const derivedSeed = bip32
+  //   .fromSeed(seed)
+  //   .derivePath(`m/44'/501'/${walletIndex}'`).privateKey;
+  //   console.log("Private Key (main): ", derivedSeed.toString('hex'));
+  const { key, chainCode} = derivePath(`m/44'/501'/${walletIndex}'`, seed);
+  console.log("Private Key: ", key.toString('hex'));
+  console.log("Chaincode: ", chainCode.toString('hex'));
+  let publicKey = getPublicKey(key).toString('hex');
+  console.log("Public Key: ", publicKey);
+  const bytes = Buffer.from(publicKey.substr(2, publicKey.length), 'hex');
+  console.log("Wallet Address: ", bs58.encode(bytes));
+  return new Account(nacl.sign.keyPair.fromSeed(key).secretKey);
 }
 
 export class LocalStorageWalletProvider {

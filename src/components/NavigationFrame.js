@@ -51,7 +51,7 @@ export default function NavigationFrame({ children }) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title} component="h1">
-            Solana SPL Token Wallet
+            Creatify Wallet
           </Typography>
           <WalletSelector />
           <NetworkSelector />
@@ -286,7 +286,7 @@ function Footer() {
         component="a"
         target="_blank"
         rel="noopener"
-        href="https://github.com/serum-foundation/spl-token-wallet"
+        href="https://github.com/CreatifyPlatform/CreatifyWallet"
         startIcon={<CodeIcon />}
       >
         View Source
